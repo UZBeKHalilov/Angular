@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CounterDisplayComponent } from './counter-display/counter-display.component';
+import { CounterControlComponent } from './counter-control/counter-control.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CounterDisplayComponent, CounterControlComponent], // Import standalone components
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'state';
-}
+export class AppComponent {}
