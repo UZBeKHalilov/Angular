@@ -3,14 +3,13 @@ import { CounterService } from '../counter.service';
 
 @Component({
   selector: 'app-counter-control',
-  standalone: true,
-  imports: [], // No additional imports needed here
+  imports: [],
   templateUrl: './counter-control.component.html',
-  styleUrls: ['./counter-control.component.scss']
+  styleUrl: './counter-control.component.scss'
 })
 export class CounterControlComponent {
-  constructor(private counterService: CounterService) {}
-
+  constructor(private counterService: CounterService) { }
+    
   increment(): void {
     this.counterService.increment();
   }
