@@ -1,0 +1,22 @@
+// This is just for the pattern background
+.bg-pattern {
+  width: 100%;
+  height: 100%;
+  // background: linear-gradient(135deg, #1e2a44 0%, #2a4066 50%, #3b5998 100%);
+  // background: linear-gradient(120deg, #17212b 0%, #232d3f 50%, #2e3a59 100%);
+  opacity: 0.7;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}

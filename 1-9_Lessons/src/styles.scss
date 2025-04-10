@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'tailwindcss';
+// Button styles
+button {
+    @apply px-4 py-2 rounded-lg font-semibold text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all;
+}
+
+// Input form styles
+input,
+textarea {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-500 transition-all;
+}
+
+label {
+    @apply block mb-2 text-sm font-medium text-gray-700;
+}
+
+form {
+    @apply space-y-4;
+}
