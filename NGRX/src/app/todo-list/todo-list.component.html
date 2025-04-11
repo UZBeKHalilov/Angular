@@ -1,0 +1,11 @@
+<input #todoInput type="text" placeholder="Add a todo" (keyup.enter)="addTodo(todoInput.value); todoInput.value = ''" />
+<ul>
+
+
+
+    <li *ngFor="let todo of todos$ | async">
+        <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo.id)" />
+        {{ todo.description }}
+        <button (click)="removeTodo(todo.id)">Remove</button>
+    </li>
+</ul>

@@ -1,6 +1,17 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { bootstrapApplication } from '@angular/platform-browser'; 
+import { provideStore } from '@ngrx/store';
 import { AppComponent } from './app/app.component';
+import { counterReducer } from './app/counter.reducer';
+import { todoReducer } from './app/todo.reducer';
+import { provideEffects } from '@ngrx/effects';
+import { TodoEffects } from './app/todo.effects';
+import { provideHttpClient } from '@angular/common/http';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideStore({ counter: counterReducer, todos: todoReducer }),
+    provideEffects([TodoEffects]),
+    provideHttpClient()
+]
+}).catch((err) => console.error(err));

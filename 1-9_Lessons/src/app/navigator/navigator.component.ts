@@ -16,61 +16,56 @@ export class NavigatorComponent {
   lessonsNavItems = [
     {
       link: '',
-      label: '2-Lesson',
+      label: '1,2 - Angular Components',
       icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
     },
-    // {
-    //   link: '2',
-    //   label: '2-Lesson',
-    //   icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'
-    // },
     {
       link: '3',
-      label: '3-Lesson',
+      label: '3-Templates and databinding',
       icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
     },
     {
       link: '4',
-      label: '4-Lesson',
+      label: '4- Services and Dependency Injection',
       icon: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z'
     },
     {
       link: '5',
-      label: '5-Lesson',
+      label: '5-Forms in Angular',
       icon: 'M9 5l7 7-7 7'
     },
     {
       link: '6',
-      label: '6-Lesson',
+      label: '6-Routing and Navigation',
       icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
     },
     {
       link: '7',
-      label: '7-Lesson',
+      label: '7-HTTP Client and APIs',
       icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
     },
     {
       link: '8',
-      label: '8-Lesson',
+      label: '8- Pipes',
       icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
     },
     {
       link: '9',
-      label: '9-Lesson',
+      label: '9- Directives',
       icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
     }
   
   ];
 
-  othersNavItems = [
+  stateNavItems = [
     {
-      link:'State',
-      label: 'State',
+      link:'Counter',
+      label: 'Counter',
       icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
     },
     {
-      link:'Ngrx',
-      label: 'Ngrx',
+      link:'State',
+      label: 'Todos',
       icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
     },
   ]
