@@ -12,10 +12,11 @@ import { NgClass } from '@angular/common';
 
 export class NavigatorComponent {
   selectedNav: string = '1-9_Lessons';
-  hrNavItems = [
+
+  lessonsNavItems = [
     {
       link: '',
-      label: '1-Lesson',
+      label: '2-Lesson',
       icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
     },
     // {
@@ -60,6 +61,19 @@ export class NavigatorComponent {
     }
   
   ];
+
+  othersNavItems = [
+    {
+      link:'State',
+      label: 'State',
+      icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
+    },
+    {
+      link:'Ngrx',
+      label: 'Ngrx',
+      icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4'
+    },
+  ]
   
   selectNav(navId: string): void {
     this.selectedNav = navId;
