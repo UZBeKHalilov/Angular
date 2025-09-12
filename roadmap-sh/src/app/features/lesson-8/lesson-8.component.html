@@ -1,0 +1,16 @@
+<h1>Pipes</h1>
+
+<p>{{ today | date:'MMM d, y' }}</p>
+
+<p>{{ "Ilyoskhuja" | reverse }}</p>
+
+<p>Due: {{ dueDate | date:'fullDate' }}</p>
+
+<input type="text" [(ngModel)]="query" placeholder="Search tasks..." class="search-input">
+<ul>
+    @for (task of tasks | filterTasks:query; track task) {
+        <li>
+            {{ task | uppercase }} - {{ dueDate | date:'shortDate' }}
+        </li>
+    }
+</ul>

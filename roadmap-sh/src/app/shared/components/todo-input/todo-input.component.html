@@ -1,0 +1,4 @@
+<h2>Add Todo</h2>
+
+    <input #todoInput (keyup.enter)="addTodo(todoInput.value); todoInput.value=''">
+    <button (click)="addTodo(todoInput.value); todoInput.value=''" class="m-5">Add</button>

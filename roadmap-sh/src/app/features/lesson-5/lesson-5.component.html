@@ -1,0 +1,15 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <input name="name" ngModel>
+   
+    <button type="submit">Submit</button>
+   
+   </form>
+
+   <form [formGroup]="form" (ngSubmit)="onSubmit2()">
+
+    <input formControlName="name">
+   
+    <button type="submit">Submit</button>
+   
+   </form>

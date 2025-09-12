@@ -1,0 +1,117 @@
+<div class="flex h-screen w-full overflow-hidden">
+  <!-- Left Sidebar -->
+  <div class="w-[80px] bg-[#17212b] flex flex-col items-center text-white">
+    <!-- Menu Button -->
+    <div class="py-4 w-full flex justify-center cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </div>
+
+    <!-- Main Navigation -->
+    <div class="flex-1 w-full flex flex-col items-center pt-2">
+      <!-- HR Nav Item -->
+      <div
+        class="w-full flex flex-col items-center py-3 cursor-pointer relative {{ selectedNav === '1-9_Lessons' ? 'bg-[#232e3c]' : '' }}"
+        (click)="selectNav('1-9_Lessons')">
+        <div class="relative">
+          <div class="w-12 h-12 rounded-full bg-[#5288c1] flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <div
+            class="absolute -top-1 -right-1 bg-[#5eaaff] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+            12
+          </div>
+        </div>
+        <div class="text-xs mt-1">1-9 Lessons</div>
+      </div>
+
+      <!-- WMS Nav Item -->
+      <div
+        class="w-full flex flex-col items-center py-3 cursor-pointer {{ selectedNav === 'stateNavItems' ? 'bg-[#232e3c]' : '' }}"
+        (click)="selectNav('stateNavItems')">
+        <div class="w-12 h-12 rounded-full bg-[#7e6b8f] flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        </div>
+        <div class="text-xs mt-1">State</div>
+      </div>
+      
+
+    </div>
+
+    <!-- Edit Button -->
+    <div class="py-4 w-full flex flex-col items-center cursor-pointer mb-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mb-1" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      <div class="text-xs">Edit</div>
+    </div>
+  </div>
+
+  <!-- Left Content Area -->
+  <nav class="bg-telegram-gradient opacity-70 p-4 w-100">
+    @if (selectedNav === '1-9_Lessons') {
+      @for (item of lessonsNavItems; track item.link) {
+      <a [routerLink]="item.link" routerLinkActive="bg-gray-50"
+        class="flex items-center px-4 py-3 border-b border-gray-200 hover:bg-gray-50">
+        <div class="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-600" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.icon" />
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="text-base font-medium">{{ item.label }}</div>
+        </div>
+        <div class="text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </a>
+      }
+    } @else if (selectedNav === 'stateNavItems') {
+      @for (item of stateNavItems; track item.link) {
+      <a [routerLink]="item.link" routerLinkActive="bg-gray-50"
+        class="flex items-center px-4 py-3 border-b border-gray-200 hover:bg-gray-50">
+        <div class="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-600" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.icon" />
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="text-base font-medium">{{ item.label }}</div>
+        </div>
+        <div class="text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </a>
+      }
+    }
+
+
+
+  </nav>
+
+  <!-- Right Pattern Area -->
+  <div class="w-[30%] bg-[#c5e6c5] bg-opacity-70 bg-pattern">
+    <div class="flex flex-col items-center justify-center z-10 h-full">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

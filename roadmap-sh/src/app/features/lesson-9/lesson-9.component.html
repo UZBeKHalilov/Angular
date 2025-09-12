@@ -1,0 +1,37 @@
+<p [ngClass]="{'active': isActive}">Text</p>
+
+<p [ngStyle]="{'color': textColor}">Text</p>
+
+<p appHighlight>Hover me!</p>
+
+@if (isVisible) {
+<p>Visible!</p>
+}
+
+<ul>@for (item of items; track item) { <li>{{ item }}</li> }</ul>
+
+<p *ngIf="isVisible">Visible!</p>
+
+<ul>
+    <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<p appHighlight [ngClass]="{'bold': isBold}">Text</p>
+
+<button (click)="toggle()">Toggle</button>
+
+@if (show) {
+<p>Peek-a-boo!</p>
+} @else {
+<p>Hidden</p>
+}
+
+<button (click)="toggle()">Show/Hide</button>
+
+@if (visible) {
+     <ul> 
+        @for (task of tasks; track task) {
+            <li appHighlight [ngStyle]="{'color': taskColor}">{{ task }}</li>
+        }
+    </ul> 
+}

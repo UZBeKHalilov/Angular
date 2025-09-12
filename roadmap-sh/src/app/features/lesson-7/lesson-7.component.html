@@ -1,0 +1,13 @@
+<h1>
+    Lesson 7: Tasks works with json-server 
+</h1>
+
+<input [(ngModel)]="newTask" (keyup.enter)="addTask()">
+<button (click)="addTask()">Add Task</button>
+
+<ul>
+    @for (task of tasks$ | async; track task) { <li>ID: {{ task.id }}, Task: {{ task.task }}</li> }
+    
+</ul>
+
+

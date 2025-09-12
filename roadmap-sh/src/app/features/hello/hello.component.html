@@ -1,0 +1,36 @@
+<p>{{name}}</p>
+<img [src]="imageUrl" alt="Echki">
+<button (click)="sayHello()">Click Me</button>
+
+<input [(ngModel)]="inputName">
+<p>{{ inputName }}</p>
+
+<button (click)="toggle()">Toggle</button>
+
+@if (isVisible) {
+
+<p>I’m visible!</p>
+
+}
+
+<ul>
+
+    @for (task of tasks; track task) {
+
+        <li>{{ task }}</li>
+
+    }
+
+</ul>
+
+<h2>Putting it together</h2>
+
+<input [(ngModel)]="newTask" (keyup.enter)="addTask()">
+
+<ul>
+
+ @for (task of newtasks; track task) { <li>{{ task }}</li> }
+
+</ul>
+
+@if (newtasks.length === 0) { <p>No Task yet!</p> }
