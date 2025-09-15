@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NavigatorComponent } from './layouts/navigator/navigator.component';
+import { NavigatorComponent } from './layouts/navigation/navigator.component';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',

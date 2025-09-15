@@ -1,0 +1,94 @@
+<div class="flex h-screen w-full overflow-hidden">
+  <!-- Left Sidebar (desktop) -->
+  <div class="hidden md:flex w-[80px] bg-[#17212b] flex-col items-center text-white">
+    <!-- Menu Button -->
+    <div class="py-4 w-full flex justify-center cursor-pointer">
+      <mat-icon (click)="toggleMobileMenu()">menu</mat-icon>
+    </div>
+
+    <!-- Main Navigation Sidebar (Dynamic) -->
+    <div class="flex-1 w-full flex flex-col items-center pt-2">
+      @for (module of navigationModules; track $index) {
+      <div 
+        class="w-full flex flex-col items-center justify-center py-3 px-2 cursor-pointer relative text-center"
+        [ngClass]="{'bg-[#232e3c]': selectedModule?.id === module.id}" 
+        (click)="selectModule(module)">
+
+        <div class="relative">
+          <div class="w-12 h-12 rounded-full bg-[#5288c1] flex items-center justify-center">
+            <mat-icon>{{ module.icon }}</mat-icon>
+          </div>
+        </div>
+        <div class="text-xs mt-1 w-full text-center truncate max-w-[64px] md:max-w-[80px] text-[11px] md:text-xs" title="{{ module.label }}">{{ module.label }}</div>
+      </div>
+      }
+    </div>
+
+    <!-- Edit Button -->
+    <div class="py-4 w-full flex flex-col items-center cursor-pointer mb-2">
+      <mat-icon>settings</mat-icon>
+      <div class="text-xs">Edit</div>
+    </div>
+  </div>
+
+  <!-- Mobile Top Bar -->
+  <div class="md:hidden w-full bg-[#17212b] text-white flex items-center justify-between px-3 py-2">
+    <div class="flex items-center gap-3">
+      <button (click)="toggleMobileMenu()" class="p-2">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="text-lg font-medium">{{ selectedModule?.label || 'Menu' }}</div>
+    </div>
+    <div>
+      <mat-icon>settings</mat-icon>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="md:hidden">
+    <div *ngIf="isMobileOpen" class="fixed inset-0 bg-black/40 z-40" (click)="closeMobileMenu()"></div>
+    <aside *ngIf="isMobileOpen" class="fixed left-0 top-0 bottom-0 w-72 bg-[#17212b] text-white z-50 p-4 overflow-auto">
+      <div class="mb-4 flex items-center justify-between">
+        <div class="text-xl font-bold">Navigation</div>
+        <button (click)="closeMobileMenu()"><mat-icon>close</mat-icon></button>
+      </div>
+      <div class="flex flex-col gap-2">
+        @for (module of navigationModules; track $index) {
+        <div class="p-2 rounded hover:bg-[#23313b] cursor-pointer" (click)="selectModule(module); closeMobileMenu()">
+          <div class="flex items-center gap-3">
+            <mat-icon>{{ module.icon }}</mat-icon>
+            <div>{{ module.label }}</div>
+          </div>
+        </div>
+        }
+      </div>
+    </aside>
+  </div>
+
+  <!-- Left Content Area -->
+  <nav class="bg-telegram-gradient opacity-70 p-4 w-100">
+
+    @for (navItem of selectedModule?.navItems; track $index) {
+    <a [routerLink]="navItem.link" routerLinkActive="bg-gray-50"
+      class="flex items-center px-4 py-3 border-b border-gray-200 hover:bg-gray-50"
+      [ngClass]="{ 'bg-gray-50': selectedNav?.link === navItem.link }" (click)="closeMobileMenu()">
+      <div class="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+        <mat-icon>{{ navItem.icon }}</mat-icon>
+      </div>
+      <div class="flex-1">
+        <div class="text-base font-medium">{{ navItem.label }}</div>
+      </div>
+      <div class="text-gray-400">
+        <mat-icon>chevron_right</mat-icon>
+      </div>
+    </a>
+    }
+  </nav>
+
+  <!-- Right Pattern Area -->
+  <div class="w-[30%] bg-[#c5e6c5] bg-opacity-70 bg-pattern">
+    <div class="flex flex-col items-center justify-center z-10 h-full">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
